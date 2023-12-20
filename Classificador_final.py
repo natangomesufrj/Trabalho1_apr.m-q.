@@ -101,7 +101,9 @@ classificador = classificador.fit(x_treino,y_treino)
 y_final_respostas = classificador.predict(x_final)
 
 
-#Escrever o arquivo final
+#--------------------------------------------------------
+#Escrevendo no arquivo final
+#--------------------------------------------------------
 
 id = []
 for a in range(20001,25001):
