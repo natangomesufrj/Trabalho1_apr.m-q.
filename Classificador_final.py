@@ -113,4 +113,4 @@ id = np.array(id)
 
 resultado = pd.DataFrame({'id_solicitante': id, 'inadimplente': y_final_respostas})
 
-resultado.to_csv('resultado.csv', index=False)
+resultado.to_csv('resultado_1.csv', index=False)
