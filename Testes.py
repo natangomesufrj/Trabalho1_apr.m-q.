@@ -102,15 +102,14 @@ for k in range(1,11):
     classificador = KNeighborsClassifier(n_neighbors=k,weights="distance")
     classificador = classificador.fit(x_treino,y_treino)
 
-    y_resposta_treino = classificador.predict(x_treino)
-    y_resposta_teste = classificador.predict(x_teste)
+    y_treino_resultado = classificador.predict(x_treino)
+    y_teste_resultado = classificador.predict(x_teste)
 
 
-    acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-    acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+    acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+    acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
     print(k,"%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
-
-
+    
 # Regressão logística
 print("\n")
 print("Regressão Logística")
@@ -119,11 +118,11 @@ for C in [0.001,0.002,0.005,0.010,0.020,0.050,1.0,0.5]:
     classificador = LogisticRegression(C=C, max_iter=1000000000000)
     classificador = classificador.fit(x_treino,y_treino)
 
-    y_resposta_treino = classificador.predict(x_treino)
-    y_resposta_teste  = classificador.predict(x_teste)
+    y_treino_resultado = classificador.predict(x_treino)
+    y_teste_resultado  = classificador.predict(x_teste)
 
-    acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-    acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+    acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+    acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
 
     print("%1.3f"%C,"%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
 
@@ -133,11 +132,11 @@ print("Árvore de decisão")
 classificador = DecisionTreeClassifier()
 classificador = classificador.fit(x_treino,y_treino)
 
-y_resposta_treino = classificador.predict(x_treino)
-y_resposta_teste = classificador.predict(x_teste)
+y_treino_resultado = classificador.predict(x_treino)
+y_teste_resultado = classificador.predict(x_teste)
 
-acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
 
 print("%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
 
@@ -147,11 +146,11 @@ print("Gradient Boosting Classifier")
 classificador = GradientBoostingClassifier()
 classificador = classificador.fit(x_treino,y_treino)
 
-y_resposta_treino = classificador.predict(x_treino)
-y_resposta_teste = classificador.predict(x_teste)
+y_treino_resultado = classificador.predict(x_treino)
+y_teste_resultado = classificador.predict(x_teste)
 
-acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
 
 print("%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
 
@@ -161,10 +160,10 @@ from sklearn.ensemble import RandomForestClassifier
 classificador = RandomForestClassifier()
 classificador = classificador.fit(x_treino,y_treino)
 
-y_resposta_treino = classificador.predict(x_treino)
-y_resposta_teste  = classificador.predict(x_teste)
-acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+y_treino_resultado = classificador.predict(x_treino)
+y_teste_resultado  = classificador.predict(x_teste)
+acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
 
 print("%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
 
@@ -174,10 +173,10 @@ from sklearn.naive_bayes import BernoulliNB
 classificador = BernoulliNB(alpha=1.0)
 classificador = classificador.fit(x_treino,y_treino)
 
-y_resposta_treino = classificador.predict(x_treino)
-y_resposta_teste  = classificador.predict(x_teste)
-acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+y_treino_resultado = classificador.predict(x_treino)
+y_teste_resultado  = classificador.predict(x_teste)
+acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
 
 print("%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
 
@@ -189,10 +188,10 @@ from sklearn.linear_model import SGDClassifier
 classificador = SGDClassifier(loss='log_loss', alpha=0.1, penalty='l2')
 classificador = classificador.fit(x_treino,y_treino)
 
-y_resposta_treino = classificador.predict(x_treino)
-y_resposta_teste  = classificador.predict(x_teste)
-acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+y_treino_resultado = classificador.predict(x_treino)
+y_teste_resultado  = classificador.predict(x_teste)
+acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
 
 print("%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
 
@@ -203,10 +202,10 @@ from sklearn.ensemble import ExtraTreesClassifier
 classificador = ExtraTreesClassifier()
 classificador = classificador.fit(x_treino,y_treino)
 
-y_resposta_treino = classificador.predict(x_treino)
-y_resposta_teste  = classificador.predict(x_teste)
-acuracia_treino = accuracy_score(y_resposta_treino,y_treino)
-acuracia_teste  = accuracy_score(y_resposta_teste,y_teste)
+y_treino_resultado = classificador.predict(x_treino)
+y_teste_resultado  = classificador.predict(x_teste)
+acuracia_treino = accuracy_score(y_treino_resultado,y_treino)
+acuracia_teste  = accuracy_score(y_teste_resultado,y_teste)
 
 print("%3.1f" % (100*acuracia_treino),"%3.1f" % (100*acuracia_teste))
 
