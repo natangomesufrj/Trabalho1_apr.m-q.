@@ -98,8 +98,7 @@ classificador = classificador.fit(x_treino,y_treino)
 
 #Resultado
 
-y_final_respostas = classificador.predict(x_final)
-
+y_final_resultados = classificador.predict(x_final)
 
 #--------------------------------------------------------
 #Escrevendo no arquivo final
@@ -111,6 +110,6 @@ for a in range(20001,25001):
 
 id = np.array(id)
 
-resultado = pd.DataFrame({'id_solicitante': id, 'inadimplente': y_final_respostas})
+resultado = pd.DataFrame({'id_solicitante': id, 'inadimplente': y_final_resultados})
 
 resultado.to_csv('resultado_1.csv', index=False)
